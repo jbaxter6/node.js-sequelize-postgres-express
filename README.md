@@ -7,3 +7,7 @@
 </p>
 
 > CodeGig is an application intended for programmers who are looking for jobs. 
+
+## All rights reserved to
+
+Traversy Media
