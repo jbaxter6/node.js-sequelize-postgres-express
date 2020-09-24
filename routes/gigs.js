@@ -8,13 +8,17 @@ const Gig = require('../models/Gig');
 gigsRouter.get('/', (req, res, next) => {
     Gig.findAll()
     .then(gigs => {
-        console.log(gigs);
-        res.sendStatus(200);
+        res.render('gigs', {gigs});
+        return console.log(gigs);
     })
     .catch(err => console.log(err))
 })
 
 gigsRouter.get('/add', (req, res, next) => {
+    res.render('add')
+})
+
+gigsRouter.post('/add', (req, res, next) => {
     const data = {
         title: "Looking for a React developer",
         technologies: "React, js, html, css",
@@ -23,7 +27,7 @@ gigsRouter.get('/add', (req, res, next) => {
         contact_email: "user1@gmail.com"
     }
 
-    let { title, technologies, budget, description, contact_email} = data
+    let { title, technologies, budget, description, contact_email } = data
 
     Gig.create({
         title,

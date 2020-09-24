@@ -15,7 +15,10 @@ const app = express();
 
 // handlebars middleware gives views
 app.engine('handlebars', expbars({ defaultLayout: 'main'}))
-app.set('view engine',)
+app.set('view engine', 'handlebars')
+
+app.use(express.static(path.join(__dirname, 'public')))
+
 
 app.get('/', (req, res, next) => res.send('INDEX'))
 
